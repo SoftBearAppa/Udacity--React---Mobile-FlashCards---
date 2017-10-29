@@ -1,4 +1,4 @@
-import { FETCH_DECKS, SAVE_TEST, TEST } from '../actions/types';
+import { FETCH_DECKS, SAVE_TEST } from '../actions/types';
 
 export default (state={}, action) => {
   const { payload, type } = action;
@@ -10,10 +10,6 @@ export default (state={}, action) => {
       return payload;
 
     case SAVE_TEST:
-      console.log(payload);
-      return payload;
-
-    case TEST:
       console.log(payload);
       return payload;
 

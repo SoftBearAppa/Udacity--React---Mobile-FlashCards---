@@ -26,14 +26,3 @@ export function appSaveTest(data) {
     })
   }
 }
-
-export function testing() {
-  return (dispatch) => {
-    apiGetDecks().then((data) => {
-      dispatch({
-        type: TEST,
-        payload: data
-      })
-    })
-  }
-}

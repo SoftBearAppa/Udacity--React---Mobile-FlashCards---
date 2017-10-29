@@ -5,10 +5,6 @@ const FLASHCARD_KEY = 'FLASHCARD_KEY';
 
 export function apiGetDecks() {
   return AsyncStorage.getItem(`${FLASHCARD_KEY}:test`)
-    .then((results) => {
-
-      return results;
-    })
 }
 
 export function apiSaveTest(data) {
