@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 
 import reducers from './src/reducers/index';
 
-import Test from './src/components/test';
+import Test from './src/components/DeckList';
 
 
 export default class App extends React.Component {
