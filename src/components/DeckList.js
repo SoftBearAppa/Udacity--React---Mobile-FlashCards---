@@ -26,7 +26,7 @@ function mapStateToProps({ ...state }) {
 function mapDipatchToProps(dispatch) {
   return bindActionCreators({
     appStartFetchDecks,
-    appSaveTest,
+    appSaveTest
   },dispatch)
 }
 export default connect(mapStateToProps, mapDipatchToProps)(Test)

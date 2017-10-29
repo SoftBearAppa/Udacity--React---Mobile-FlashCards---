@@ -17,8 +17,6 @@ export function appStartFetchDecks() {
 export function appSaveTest(data) {
   return dispatch => {
     apiSaveTest(data).then((newData) => {
-      console.log(newData);
-      console.log(data);
       dispatch({
         type: SAVE_TEST,
         payload: data,
