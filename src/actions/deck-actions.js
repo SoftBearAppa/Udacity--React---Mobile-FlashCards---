@@ -25,6 +25,6 @@ export function appSaveTitle(title) {
         payload: deck,
       })
     })
-    .catch((error) => console.log(error + deck))
+    .catch((error) => console.log(error))
   }
 }
