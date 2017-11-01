@@ -4,13 +4,11 @@ import { AsyncStorage } from 'react-native';
 const FLASHCARD_KEY = 'FLASHCARD_KEY';
 
 export function apiGetDecks() {
-  return AsyncStorage.getItem(`${FLASHCARD_KEY}:test`)
-    .then((results) => {
-
-      return results;
-    })
+  return AsyncStorage.getItem(`${FLASHCARD_KEY}:test`);
 }
 
-export function apiSaveTest(data) {
-  return AsyncStorage.setItem(`${FLASHCARD_KEY}:test`, data)
+export function apiSaveTitle(deck) {
+  return AsyncStorage.mergeItem(`${FLASHCARD_KEY}:test`, JSON.stringify({
+    [deck.title]: deck,
+  }));
 }

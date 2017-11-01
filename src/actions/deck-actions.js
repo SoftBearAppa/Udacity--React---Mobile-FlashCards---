@@ -1,39 +1,30 @@
-import { FETCH_DECKS, SAVE_TEST, TEST } from './types';
+import { FETCH_DECKS, SAVE_TEST } from './types';
 
-import { apiGetDecks, apiSaveTest } from '../utils/api';
+import { apiGetDecks, apiSaveTitle } from '../utils/api';
 
 export function appStartFetchDecks() {
   return dispatch => {
     apiGetDecks().then((decks) => {
+      console.log(decks);
       dispatch({
         type: FETCH_DECKS,
         payload: decks
-
       })
     })
+    .catch((error) => console.log(error))
   }
 }
 
-export function appSaveTest(data) {
+export function appSaveTitle(title) {
+  const deck = {title, questions: []};
+  console.log(deck);
   return dispatch => {
-    apiSaveTest(data).then((newData) => {
-      console.log(newData);
-      console.log(data);
+    apiSaveTitle(deck).then((deck) => {
       dispatch({
         type: SAVE_TEST,
-        payload: data,
+        payload: deck,
       })
     })
-  }
-}
-
-export function testing() {
-  return (dispatch) => {
-    apiGetDecks().then((data) => {
-      dispatch({
-        type: TEST,
-        payload: data
-      })
-    })
+    .catch((error) => console.log(error + deck))
   }
 }
