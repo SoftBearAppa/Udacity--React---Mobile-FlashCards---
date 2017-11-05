@@ -6,12 +6,11 @@ export default (state={}, action) => {
   switch (type) {
 
     case FETCH_DECKS:
-      console.log(payload)
-      return {payload};
+      const decks = JSON.parse(payload);
+      return {...state, ...decks};
 
     case SAVE_TEST:
-      return console.log(payload)
-      ;
+      return {...state};
 
     default:
       return state;

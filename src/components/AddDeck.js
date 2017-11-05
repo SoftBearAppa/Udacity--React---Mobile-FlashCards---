@@ -5,6 +5,8 @@ import { bindActionCreators } from 'redux';
 
 import { appStartFetchDecks, appSaveTitle } from '../actions/deck-actions'
 
+import { apiSaveTitle } from '../utils/api'
+
 class DeckList extends Component {
   componentDidMount() {
     this.props.appStartFetchDecks();
@@ -16,7 +18,13 @@ class DeckList extends Component {
 
   saveDeckTitle = () => {
     const { deckTitle } = this.state;
-    this.props.appSaveTitle(deckTitle);
+    const entry = this.state;
+
+    const newDeck = { [entry.deckTitle]: {title: entry.deckTitle, questions:[]}}
+
+    apiSaveTitle(newDeck);
+    this.props.appSaveTitle(newDeck);
+
     return this.setState({
       deckTitle: '',
     })
@@ -24,7 +32,6 @@ class DeckList extends Component {
 
   render() {
     const { deckTitle } = this.state;
-    console.log(this.props);
     return (
       <View>
         <Text>Enter a Deck Title for a New Deck</Text>

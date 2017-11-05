@@ -35,7 +35,7 @@ export default class App extends React.Component {
       <Provider store={store}>
         <View style={{flex: 1}}>
           <FlashCardStatusBar backgroundColor={'rgb(250,146,54)'} barStyle={'dark-content'}/>
-          <AddDeck />
+          <Tabs />
         </View>
       </Provider>
     );
