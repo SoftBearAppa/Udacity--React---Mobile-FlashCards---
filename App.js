@@ -1,6 +1,6 @@
 import { Constants } from 'expo';
 import React from 'react';
-import { TabNavigator } from 'react-navigation';
+import { TabNavigator, StackNavigator } from 'react-navigation';
 import { StyleSheet, Text, View, StatusBar } from 'react-native';
 import ReduxThunk from 'redux-thunk';
 import { createStore, applyMiddleware } from 'redux';
@@ -10,6 +10,8 @@ import reducers from './src/reducers/index';
 
 import DeckList from './src/components/DeckList';
 import AddDeck from './src/components/AddDeck';
+import SingleDeckView from './src/components/SingleDeckView'
+import NewQuestionView from './src/components/NewQuestionView';
 
 function FlashCardStatusBar ({ backgroundColor, ...props }) {
   return (
@@ -28,6 +30,20 @@ const Tabs = TabNavigator({
   }
 })
 
+const Stack = StackNavigator({
+  Home: {
+    screen: Tabs,
+    navigationOptions: {title: 'Home'},
+  },
+  SingleDeckView: {
+    screen: SingleDeckView
+  },
+  NewQuestionView: {
+    screen: NewQuestionView
+  }
+
+})
+
 export default class App extends React.Component {
   render() {
     const store = createStore(reducers, applyMiddleware(ReduxThunk));
@@ -35,7 +51,7 @@ export default class App extends React.Component {
       <Provider store={store}>
         <View style={{flex: 1}}>
           <FlashCardStatusBar backgroundColor={'rgb(250,146,54)'} barStyle={'dark-content'}/>
-          <Tabs />
+          <Stack />
         </View>
       </Provider>
     );

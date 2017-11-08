@@ -13,9 +13,10 @@ class DeckList extends Component {
   };
 
   renderDeckList = ({item}) => {
+    const { navigate } = this.props.navigation;
     return (
       <View>
-        <TouchableOpacity onPress={() => {console.log(item.title)}}>
+        <TouchableOpacity onPress={() => navigate('SingleDeckView', item)}>
           <DeckListDetails title={item.title} questions={item.questions} />
         </TouchableOpacity>
       </View>
