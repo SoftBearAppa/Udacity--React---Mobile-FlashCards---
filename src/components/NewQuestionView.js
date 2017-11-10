@@ -2,23 +2,42 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux'
 import { Text, View, TextInput, KeyboardAvoidingView, TouchableOpacity } from 'react-native';
 
+import { addCard } from '../actions/deck-actions'
+import { apiAddCard } from '../utils/api';
+
 class NewQuestionView extends Component {
   state = {
-    question: '',
-    answer: '',
+    txtQuestion: '',
+    txtAnswer: '',
+  }
+
+  saveCard = () => {
+    const {txtQuestion, txtAnswer} = this.state;
+    const {title, questions} = this.props.navigation.state.params;
+
+    const values = {title, questions, txtQuestion, txtAnswer}
+
+    this.props.addCard(values)
+    apiAddCard({
+      card: { questions: txtQuestion, answer: txtAnswer},
+      deckName: title
+    })
+
+    
+    
   }
 
   render() {
-    const { question, answer} = this.state;
+    const { txtQuestion, txtAnswer} = this.state;
     return (
       <View>
         <Text>New Question</Text>
         <KeyboardAvoidingView>
           <Text>Question:</Text>
-          <TextInput value={question} onChangeText={question => this.setState({question})} placeholder={'Enter Question'} />
+          <TextInput value={txtQuestion} onChangeText={txtQuestion => this.setState({txtQuestion})} placeholder={'Enter Question'} />
           <Text>Answer:</Text>
-          <TextInput value={answer} onChangeText={answer => this.setState({answer})} placeholder={'Enter Answer to Question'} />
-          <TouchableOpacity onPress={() => console.log(this.state)}>
+          <TextInput value={txtAnswer} onChangeText={txtAnswer => this.setState({txtAnswer})} placeholder={'Enter Answer to Question'} />
+          <TouchableOpacity onPress={() => this.saveCard()}>
             <Text>Submitt</Text>
           </TouchableOpacity>
         </KeyboardAvoidingView>
@@ -27,4 +46,10 @@ class NewQuestionView extends Component {
   }
 }
 
-export default connect()(NewQuestionView)
+function mapStateToProps({decks}) {
+  return {
+    decks: decks
+  }
+}
+
+export default connect(mapStateToProps, { addCard })(NewQuestionView)

@@ -12,7 +12,7 @@ class SingleDeckView extends Component {
       <View>
         <Text>{title}</Text>
         <Text>Cards: {questions.length}</Text>
-        <TouchableOpacity onPress={() => navigate('NewQuestionView')} ><Text>Add Question</Text></TouchableOpacity>
+        <TouchableOpacity onPress={() => navigate('NewQuestionView', {title, questions})} ><Text>Add Question</Text></TouchableOpacity>
       </View>
     )
   }

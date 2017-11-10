@@ -11,3 +11,16 @@ export function apiSaveTitle(deckName) {
   const obj = JSON.stringify(deckName);
   return AsyncStorage.mergeItem(FLASHCARD_KEY, obj);
 }
+
+export function apiAddCard({ card, deckName }) {
+  return AsyncStorage.getItem(FLASHCARD_KEY, (e, result) => {
+    let decks = JSON.parse(result);
+    let newCard = decks[deckName].questions;
+    newCard[newCard.length] = card;
+    const value = JSON.stringify({
+      [deckName]: { title: deckName, questions: newCard }
+    });
+
+    AsyncStorage.mergeItem(FLASHCARD_KEY, value);
+  })
+}

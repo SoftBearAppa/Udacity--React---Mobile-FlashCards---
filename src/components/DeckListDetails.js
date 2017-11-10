@@ -5,7 +5,7 @@ export default function DeckListDeails({ title, questions }) {
   return (
     <View>
       <Text>{title}</Text>
-      <Text>Cards: {questions}</Text>
+      <Text>Cards: {questions.length}</Text>
     </View>
   )
 }
