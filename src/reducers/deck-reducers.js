@@ -21,7 +21,7 @@ export default (state={}, action) => {
       return {...state, ...decks};
 
     case SAVE_TEST:
-      return {...state};
+      return {...state, ...payload};
 
     default:
       return state;
