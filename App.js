@@ -8,10 +8,11 @@ import { Provider } from 'react-redux';
 
 import reducers from './src/reducers/index';
 
-import DeckList from './src/components/DeckList';
 import AddDeck from './src/components/AddDeck';
-import SingleDeckView from './src/components/SingleDeckView'
+import DeckList from './src/components/DeckList';
 import NewQuestionView from './src/components/NewQuestionView';
+import SingleDeckView from './src/components/SingleDeckView'
+import QuizView from './src/components/QuizView';
 
 function FlashCardStatusBar ({ backgroundColor, ...props }) {
   return (
@@ -40,8 +41,9 @@ const Stack = StackNavigator({
   },
   NewQuestionView: {
     screen: NewQuestionView
-  }
-
+  },QuizView: {
+    screen: QuizView
+  },
 })
 
 export default class App extends React.Component {
