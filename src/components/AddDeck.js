@@ -25,8 +25,12 @@ class DeckList extends Component {
     apiSaveTitle(newDeck);
     this.props.appSaveTitle(newDeck);
 
-    return this.setState({
+    this.setState({
       deckTitle: '',
+    })
+
+    this.props.navigation.navigate('SingleDeckView', {
+      title: entry.deckTitle
     })
   }
 
