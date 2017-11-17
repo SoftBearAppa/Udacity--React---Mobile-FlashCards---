@@ -7,6 +7,7 @@ import { createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 
 import reducers from './src/reducers/index';
+import { setLocalNotifications } from './src/utils/api';
 
 import AddDeck from './src/components/AddDeck';
 import DeckList from './src/components/DeckList';
@@ -47,6 +48,10 @@ const Stack = StackNavigator({
 })
 
 export default class App extends React.Component {
+  componentDidMount() {
+      setLocalNotifications();
+  }
+
   render() {
     const store = createStore(reducers, applyMiddleware(ReduxThunk));
     return (
