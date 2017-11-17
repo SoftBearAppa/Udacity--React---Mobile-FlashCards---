@@ -49,16 +49,19 @@ const Tabs = TabNavigator({
 const Stack = StackNavigator({
   Home: {
     screen: Tabs,
-    navigationOptions: {title: 'Home'},
   },
   SingleDeckView: {
     screen: SingleDeckView
   },
   NewQuestionView: {
     screen: NewQuestionView
-  },QuizView: {
+  },
+  QuizView: {
     screen: QuizView
   },
+},
+{
+  headerMode: 'none'
 })
 
 export default class App extends React.Component {
