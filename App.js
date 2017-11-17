@@ -30,7 +30,21 @@ const Tabs = TabNavigator({
   AddDeck: {
     screen: AddDeck
   }
+},
+{
+  navigationOptions: {
+    header: null,
+  },
+  tabBarOptions: {
+    activeTintColor: 'rgb(98,108,118)',
+    style: {
+      height: 45,
+      backgroundColor: '#002e61',
+    }
+  }
 })
+
+
 
 const Stack = StackNavigator({
   Home: {
@@ -57,7 +71,7 @@ export default class App extends React.Component {
     return (
       <Provider store={store}>
         <View style={{flex: 1}}>
-          <FlashCardStatusBar backgroundColor={'rgb(250,146,54)'} barStyle={'dark-content'}/>
+          <FlashCardStatusBar backgroundColor={'#198ea5'} barStyle={'light-content'}/>
           <Stack />
         </View>
       </Provider>
