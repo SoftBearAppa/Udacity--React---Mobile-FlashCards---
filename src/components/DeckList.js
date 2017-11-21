@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, TouchableOpacity, AsyncStorage, Alert, FlatList } from 'react-native';
+import { View, Text, TouchableOpacity, AsyncStorage, Alert, FlatList, StyleSheet } from 'react-native';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 
@@ -15,7 +15,7 @@ class DeckList extends Component {
   renderDeckList = ({item}) => {
     const { navigate } = this.props.navigation;
     return (
-      <View>
+      <View style={style.container} >
         <TouchableOpacity onPress={() => navigate('SingleDeckView', item)}>
           <DeckListDetails title={item.title} questions={item.questions} />
         </TouchableOpacity>
@@ -28,8 +28,8 @@ class DeckList extends Component {
     const formattedDeck = Object.values(decks).sort((a, b) => a.title > b.title);
     
     return (
-      <View>
-        <Text>Deck List</Text>
+      <View style={style.container} >
+        <Text style={style.header} >Deck List</Text>
         <FlatList data={formattedDeck} renderItem={this.renderDeckList} keyExtractor={(item, index) => item.title}/>
       </View>
     )
@@ -47,4 +47,15 @@ function mapDipatchToProps(dispatch) {
     appStartFetchDecks,
   },dispatch)
 }
+
+const style = StyleSheet.create({
+  container: {
+    alignItems: 'center',
+  },
+  header: {
+    paddingTop: 10,
+    fontSize: 20,
+  },
+})
+
 export default connect(mapStateToProps, mapDipatchToProps)(DeckList)
