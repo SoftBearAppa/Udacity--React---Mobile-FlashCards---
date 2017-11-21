@@ -85,9 +85,6 @@ const style = StyleSheet.create({
     fontSize: 20,
     paddingTop: 10,
   },
-  inputContainer: {
-    flexDirection: 'row'
-  },
   input: {
     width: 250,
     paddingTop: 22,
