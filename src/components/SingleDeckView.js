@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { View, Text, TouchableOpacity, Animated } from 'react-native';
+import { View, Text, TouchableOpacity, Animated, StyleSheet } from 'react-native';
 
 class SingleDeckView extends Component {
   state = {
@@ -24,11 +24,11 @@ class SingleDeckView extends Component {
     const { title } = this.props.navigation.state.params;
     const questions = this.props.decks[title].questions;
     return (
-      <Animated.View style={{opacity: timing}} >
-        <Text>{title}</Text>
-        <Text>Cards: {questions.length}</Text>
-        <TouchableOpacity onPress={() => navigate('NewQuestionView', {title, questions})} ><Text>Add Question</Text></TouchableOpacity>
-        <TouchableOpacity onPress={() => navigate('QuizView', { title, questions })} ><Text>Start Quiz</Text></TouchableOpacity>
+      <Animated.View style={{opacity: timing, alignItems: 'center'}} >
+        <Text style= {style.deckTitle} >{title}</Text>
+        <Text style= {style.cards} >Cards: {questions.length}</Text>
+        <TouchableOpacity style={style.button} onPress={() => navigate('NewQuestionView', {title, questions})} ><Text>Add Question</Text></TouchableOpacity>
+        <TouchableOpacity style={style.button} onPress={() => navigate('QuizView', { title, questions })} ><Text>Start Quiz</Text></TouchableOpacity>
       </Animated.View>
     )
   }
@@ -39,5 +39,23 @@ function mapStateToProps({ decks }) {
     decks
   }
 }
+
+const style = StyleSheet.create({
+  deckTitle: {
+    marginTop: 10,
+    fontSize: 18,
+    fontWeight: 'bold'
+  },
+  cards: {
+    marginTop: 8
+  },
+  button: {
+    marginTop: 18,
+    borderWidth: 1,
+    borderRadius: 5,
+    padding: 5,
+    backgroundColor: '#95a5a6',
+  }
+})
 
 export default connect(mapStateToProps)(SingleDeckView)
