@@ -7,9 +7,9 @@ This app has only been tested on Andriod using Expo.
 ### Installation
 This app requires that use you Expo, please follow their instructions [here](https://expo.io/)
 
-..* Clone/Download this [repo](https://github.com/SoftBearFeet/Udacity--React---Mobile-FlashCards---.git),
-..* NPM install all dependancies,
-..* npm start,
+* Clone/Download this [repo](https://github.com/SoftBearFeet/Udacity--React---Mobile-FlashCards---.git),
+* NPM install all dependancies,
+* npm start,
 
 Once the app is started, Start Expo and give permisson to the app.
  ~Enjoy~
