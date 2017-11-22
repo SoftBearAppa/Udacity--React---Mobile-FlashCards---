@@ -12,7 +12,7 @@ This app requires that use you Expo, please follow their instructions [here](htt
 * npm start,
 
 Once the app is started, Start Expo and give permisson to the app.
- ~Enjoy~
+Enjoy!
  
 ### Project Requirments
 The requirments for this project can be found [here](https://review.udacity.com/#!/rubrics/1021/view)
