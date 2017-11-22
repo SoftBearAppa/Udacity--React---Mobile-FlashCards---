@@ -7,16 +7,16 @@ export default class QuizCard extends Component {
     return (
       <View>
         {showAnswer ? (
-          <View>
-            <Text>{answer}</Text>
-            <TouchableOpacity onPress={toggle}>
+          <View style={{ alignItems: 'center' }} > 
+            <Text style={{ margin: 10, fontSize: 25}} >{answer}</Text>
+            <TouchableOpacity style={{ padding: 5, margin: 10, borderWidth: 1, borderRadius: 5, backgroundColor: '#95a5a6' }} onPress={toggle}>
               <Text>Question</Text>
             </TouchableOpacity>
           </View>
         ) : (
-          <View>
-            <Text>{question}</Text>
-              <TouchableOpacity onPress={toggle}>
+          <View style={{ alignItems: 'center' }} >
+            <Text style={{ margin: 10, fontSize: 25}} >{question}</Text>
+              <TouchableOpacity style={{ padding: 5, margin: 10, borderWidth: 1, borderRadius: 5, backgroundColor: '#95a5a6' }} onPress={toggle}>
                 <Text>Answer</Text>
             </TouchableOpacity>
           </View>

@@ -41,9 +41,7 @@ class QuizView extends Component {
     const { title, questions } = this.props.navigation.state.params;
     return (
       <View>
-        <Text>Quiz View</Text>
         { index < questions.length ? (
-          
           <ActiveQuiz title={title} questions={questions} onCorrect={this.onCorrect} onIncorrect={this.onIncorrect} toggleAnswer={this.toggleAnswer} showAnswer={showAnswer} index={this.state.index} />
         ) : (
             <QuizComplete correctQuestions={correctQuestions} resetQuiz={this.resetQuiz} navigation={this.props.navigation} />
