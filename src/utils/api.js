@@ -2,7 +2,7 @@ import _ from 'lodash';
 import { AsyncStorage, Alert } from 'react-native';
 import { Permissions, Notifications } from 'expo';
 
-const FLASHCARD_KEY = 'FLASHCARD_KEY:newTest';
+const FLASHCARD_KEY = 'FLASHCARD_KEY:storage';
 const NOTIFICTION_KEY = 'FLASHCARD_KEY:notifications';
 
 export function apiGetDecks() {
