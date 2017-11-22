@@ -19,11 +19,7 @@ class DeckList extends Component {
   saveDeckTitle = () => {
     const { deckTitle } = this.state;
     const entry = this.state;
-    console.log(this.props)
     const { decks } = this.props;
-
-    console.log(decks);
-    console.log(decks[entry.deckTitle]);
 
     if (decks[entry.deckTitle]) {
       Alert.alert('Deck already Exists','Please type a different deck title')

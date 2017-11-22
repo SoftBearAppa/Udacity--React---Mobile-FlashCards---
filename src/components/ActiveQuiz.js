@@ -6,7 +6,6 @@ import QuizCard from './QuizCard';
 export default class ActiveQuiz extends Component {
   render () {
     const { title, questions, onCorrect, onIncorrect, toggleAnswer, showAnswer, index } = this.props;
-    console.log(this.props)
     return (
         <View style={style.container} >
           <Text style={style.questions} >{questions.length - index} Questions Remain.</Text>
