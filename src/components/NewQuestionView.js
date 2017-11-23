@@ -51,8 +51,11 @@ class NewQuestionView extends Component {
           <TextInput style= {style.input} value={txtQuestion} onChangeText={txtQuestion => this.setState({txtQuestion})} placeholder={'Enter Question'} />
           <Text style={{marginTop: 14}} >Answer:</Text>
           <TextInput style= {style.input} value={txtAnswer} onChangeText={txtAnswer => this.setState({txtAnswer})} placeholder={'Enter Answer to Question'} />
-          <TouchableOpacity style={style.submit} onPress={() => this.saveCard()}>
+          <TouchableOpacity style={style.button} onPress={() => this.saveCard()}>
             <Text>Submitt</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={style.button} onPress={() => this.props.navigation.goBack(null)}>
+            <Text>Back</Text>
           </TouchableOpacity>
         </KeyboardAvoidingView>
       </View>
@@ -79,7 +82,7 @@ const style = StyleSheet.create({
     paddingTop: 10,
     fontSize: 18,
   },
-  submit: {
+  button: {
     borderWidth: 1,
     padding: 10,
     margin: 50,
