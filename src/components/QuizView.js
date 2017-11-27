@@ -39,12 +39,13 @@ class QuizView extends Component {
   render() {
     const {index, correctQuestions, showAnswer} = this.state;
     const { title, questions } = this.props.navigation.state.params;
+    const questionLenght = questions.length;
     return (
       <View>
         { index < questions.length ? (
           <ActiveQuiz title={title} questions={questions} onCorrect={this.onCorrect} onIncorrect={this.onIncorrect} toggleAnswer={this.toggleAnswer} showAnswer={showAnswer} index={this.state.index} />
         ) : (
-            <QuizComplete correctQuestions={correctQuestions} resetQuiz={this.resetQuiz} navigation={this.props.navigation} />
+            <QuizComplete correctQuestions={correctQuestions} questionLength={questionLenght} resetQuiz={this.resetQuiz} navigation={this.props.navigation} />
         )}
       </View>
     )

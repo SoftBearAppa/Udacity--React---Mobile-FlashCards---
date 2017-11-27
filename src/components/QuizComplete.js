@@ -8,11 +8,11 @@ export default class QuizComplete extends Component {
     clearLocalNotifications()
   }
   render() {
-    const { correctQuestions, resetQuiz, navigation } = this.props;
+    const { correctQuestions, resetQuiz, navigation, questionLength } = this.props;
     return(
       <View style={style.container} >
         <Text style={style.header} >Quiz is Complete!</Text>
-        <Text style={style.score} >You got {correctQuestions} correct!</Text>
+        <Text style={style.score} >You got {correctQuestions} correct out of {questionLength}.</Text>
         <TouchableOpacity style={style.button} onPress={ () => {
           resetQuiz();
           navigation.goBack('QuizView');

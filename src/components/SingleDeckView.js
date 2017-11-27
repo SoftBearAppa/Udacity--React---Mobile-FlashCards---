@@ -18,7 +18,7 @@ class SingleDeckView extends Component {
   }
 
   render() {
-    console.log(this.props);
+    const { navigation } = this.props;
     const { timing } = this.state;
     const { navigate } = this.props.navigation;
     const { title } = this.props.navigation.state.params;
@@ -29,6 +29,7 @@ class SingleDeckView extends Component {
         <Text style= {style.cards} >Cards: {questions.length}</Text>
         <TouchableOpacity style={style.button} onPress={() => navigate('NewQuestionView', {title, questions})} ><Text>Add Question</Text></TouchableOpacity>
         <TouchableOpacity style={style.button} onPress={() => navigate('QuizView', { title, questions })} ><Text>Start Quiz</Text></TouchableOpacity>
+        <TouchableOpacity style={style.button} onPress={() => navigation.goBack(null)} ><Text>Back</Text></TouchableOpacity>
       </Animated.View>
     )
   }
